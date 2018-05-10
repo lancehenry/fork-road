@@ -1,5 +1,8 @@
 var express = require("express");
 var bodyParser = require("body-parser");
+var passport = require("passport");
+var session = require("express-session");
+var env = require("dotenv").load();
 
 var PORT = process.env.PORT || 8080;
 
@@ -11,19 +14,46 @@ app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
+// For Passport
+app.use(session({ secret: 'go team', resave: true, saveUninitialized: true })); // session secret
+app.use(passport.initialize());
+app.use(passport.session()); // persistent login sessions
+
 // Set Handlebars.
 var exphbs = require("express-handlebars");
+
+// Models
+var models = require("./models");
+
+// Authorization Route
+var authRoute = require('./routes/auth.js')(app, passport);
+
+//load passport strategies
+require('./config/passport/passport.js')(passport, models.user);
 
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
 // Import routes and give the server access to them.
-var routes = require("./controllers/ratings_controller.js");
+var routes = require("./controllers/authcontroller.js");
 
-app.use(routes);
+// app.use(routes);
 
-// Start our server so that it can begin listening to client requests.
-app.listen(PORT, function() {
-  // Log (server-side) when our server has started
-  console.log("Server listening on: http://localhost:" + PORT);
+// For testing
+app.get('/', function(req, res) {
+  res.send('Welcome to Passport with Sequelize');
+});
+
+//Sync Database
+models.sequelize.sync().then(function () {
+  console.log('Nice! Database looks fine')
+
+}).catch(function (err) {
+  console.log(err, "Something went wrong with the Database Update!")
+});
+
+app.listen(8080, function (err) {
+  if (!err)
+    console.log("Site is live"); else console.log(err)
+
 });
