@@ -1,3 +1,2 @@
-DROP DATABASE IF EXISTS restaurantsAndDishes;
-
-CREATE DATABASE restaurantsAndDishes;
+DROP DATABASE IF EXISTS fork_db;
+CREATE DATABASE fork_db;

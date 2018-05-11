@@ -1,11 +1,8 @@
 {
   "name": "fork-road",
   "version": "1.0.0",
-  "description": "User authentication that allows user to input restaurant, dishes, rating, notes in the database.",
+  "description": "\"Application to store individual dish reviews tied to restaurants per user\"",
   "main": "server.js",
-  "directories": {
-    "test": "test"
-  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
@@ -14,16 +11,23 @@
     "type": "git",
     "url": "git+https://github.com/lschmittling/fork-road.git"
   },
-  "author": "Rachel, Angeline, Zack, Lance",
-  "license": "MIT",
-  "dependencies": {
-    "body-parser": "^1.14.2",
-    "express": "^4.13.3",
-    "express-handlebars": "^2.0.1",
-    "mysql": "^2.10.2"
-  },
+  "author": "Lance Schmittling, Rachel Punches, Angeline Slayton, Zack Muenz",
+  "license": "ISC",
   "bugs": {
     "url": "https://github.com/lschmittling/fork-road/issues"
   },
-  "homepage": "https://github.com/lschmittling/fork-road#readme"
+  "homepage": "https://github.com/lschmittling/fork-road#readme",
+  "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
+    "body-parser": "^1.18.2",
+    "dotenv": "^5.0.1",
+    "express": "^4.16.3",
+    "express-handlebars": "^3.0.0",
+    "express-session": "^1.15.6",
+    "mysql": "^2.15.0",
+    "mysql2": "^1.5.3",
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0",
+    "sequelize": "^4.37.7"
+  }
 }

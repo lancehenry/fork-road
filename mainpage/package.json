@@ -1,0 +1,29 @@
+{
+  "name": "fork-road",
+  "version": "1.0.0",
+  "description": "User authentication that allows user to input restaurant, dishes, rating, notes in the database.",
+  "main": "server.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lschmittling/fork-road.git"
+  },
+  "author": "Rachel, Angeline, Zack, Lance",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.14.2",
+    "express": "^4.13.3",
+    "express-handlebars": "^2.0.1",
+    "mysql": "^2.10.2"
+  },
+  "bugs": {
+    "url": "https://github.com/lschmittling/fork-road/issues"
+  },
+  "homepage": "https://github.com/lschmittling/fork-road#readme"
+}
