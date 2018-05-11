@@ -31,8 +31,14 @@ var authRoute = require('./routes/auth.js')(app, passport);
 //load passport strategies
 require('./config/passport/passport.js')(passport, models.user);
 
-app.engine("handlebars", exphbs({ defaultLayout: "main" }));
-app.set("view engine", "handlebars");
+app.set('views', 'views')
+app.engine('hbs', exphbs({
+    extname: '.hbs'
+}));
+app.set('view engine', '.hbs');
+
+//app.engine("handlebars", exphbs({ defaultLayout: "main" }));
+//app.set("view engine", "handlebars");
 
 // Import routes and give the server access to them.
 var routes = require("./controllers/authcontroller.js");
