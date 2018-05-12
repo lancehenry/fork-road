@@ -32,7 +32,7 @@ var authRoute = require('./routes/auth.js')(app, passport);
 //load passport strategies
 require('./config/passport/passport.js')(passport, models.user);
 
-
+// Use a if statement 'ifAuthenticated' passport documentation
 
 //app.set('views', 'views')
 app.engine('hbs', exphbs({
