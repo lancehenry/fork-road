@@ -1,7 +1,7 @@
 var db = require("../models");
 
 module.exports = function (app) {
-  app.get("/api/restaurants", function (req, res) {
+  app.get("/api/restaurant", function (req, res) {
     // Here we add an "include" property to our options in our findAll query
     // We set the value to an array of the models we want to include in a left outer join
     // In this case, just db.Post
@@ -12,10 +12,11 @@ module.exports = function (app) {
     });
   });
 
-  app.post("/api/restaurants", function (req, res) {
+  app.post("/api/restaurant", function (req, res) {
     db.Restaurant.create(req.body).then(function (dbRestaurant) {
       res.json(dbRestaurant);
     });
+    res.redirect('/dashboard');
   });
 
   app.delete("/api/authors/:id", function (req, res) {
@@ -27,5 +28,5 @@ module.exports = function (app) {
       res.json(dbRestaurant);
     });
   });
-
 };
+
