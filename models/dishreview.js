@@ -1,5 +1,13 @@
 module.exports = function (sequelize, DataTypes) {
-  var Dish = sequelize.define("Dish", {
+  var DishReview = sequelize.define("DishReview", {
+    // Giving the Author model a name of type STRING
+    restaurantName: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        len: [1]
+      }
+    },
     dishName: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -16,20 +24,20 @@ module.exports = function (sequelize, DataTypes) {
     },
     notes: {
       type: DataTypes.TEXT,
-      allowNull: false,
-      len: [1, 150]
+      allowNull: true,
+      len: [1, 200]
     }
   });
 
-  Dish.associate = function (models) {
+  DishReview.associate = function (models) {
     // We're saying that a Dish should belong to a Restaurant
     // A Dish can't be created without a Restaurant due to the foreign key constraint
-    Dish.belongsTo(models.Restaurant, {
+    DishReview.belongsTo(models.User, {
       foreignKey: {
         allowNull: false
       }
     });
   };
 
-  return Dish;
+  return DishReview;
 };

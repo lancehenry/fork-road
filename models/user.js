@@ -12,7 +12,7 @@ module.exports = function(sequelize, Sequelize) {
   User.associate = function (models) {
     // Associating User with Restaurants
     // When a User is deleted, also delete any associated Restaurants
-    User.hasMany(models.Restaurant, {
+    User.hasMany(models.DishReview, {
       onDelete: "cascade"
     });
   };

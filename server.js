@@ -1,4 +1,5 @@
 var express = require("express");
+var path = require('path');
 var bodyParser = require("body-parser");
 var passport = require("passport");
 var session = require("express-session");
@@ -11,8 +12,8 @@ var app = express();
 app.use(express.static("public"));
 
 // Sets up the Express app to handle data parsing
-app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 // For Passport
 app.use(session({ secret: 'go team', resave: true, saveUninitialized: true })); // session secret
