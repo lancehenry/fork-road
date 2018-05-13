@@ -37,14 +37,17 @@
 
       <!-- Add restaurant -->
       <div class="valign-wrapper row login-box">
-        <div class="col card s10 pull-s1 m6 pull-m3 l4 pull-l4">
-          <form id="dish" name="dish" method="post" action="/api/restaurant">
+        <div class="col card s10 pull-s1 m10 pull-m1 l10 pull-l1">
+          <form id="restaurant" name="restaurant" method="post" action="/api/restaurant">
             <label for="restaurantName">Restaurant</label>
             <input name="restaurantName" id="restaurantName" type="text" />
             <input class="btn" type="submit" value="Submit" />
           </form>
         </div>
       </div>
+
+     
+
 
       <!-- Add dish -->
       {{!--
@@ -87,5 +90,8 @@
     var input = document.getElementById('restaurantName');
     var autocomplete = new google.maps.places.Autocomplete(input, { types: ['establishment'] });
   </script>
+
+  <!-- Custom Script -->
+	<!-- <script src="../public/js/user.js" type="text/javascript"></script> -->
 
 </body>

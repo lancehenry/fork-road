@@ -54,7 +54,7 @@ app.get('/', function(req, res) {
 
 // Load api-routes
 require('./routes/restaurant-api-routes.js')(app);
-require('./routes/dish-api-routes.js')(app);
+require('./routes/dish-review-routes.js')(app);
 
 //Sync Database
 models.sequelize.sync().then(function () {

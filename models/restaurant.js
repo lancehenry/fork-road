@@ -7,10 +7,10 @@ module.exports = function (sequelize, DataTypes) {
   Restaurant.associate = function (models) {
     // Associating Restaurant with Dishes
     // When a Restaurant is deleted, also delete any associated Dishes
-    Restaurant.hasMany(models.Dish, {
+    Restaurant.hasMany(models.DishReview, {
       onDelete: "cascade"
     });
   };
-
+  
   return Restaurant;
 };
