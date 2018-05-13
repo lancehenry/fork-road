@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Fork In The Road</title>
+
+  <!-- Google API -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDa8jx9xsyv9bA7A8i1Z8B4wRWzgZipal8&libraries=places&language=en"></script>
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection" />
+  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection" />
+</head>
+
+<body>
+
+  <nav>
+    <div class="nav-wrapper teal lighten-2">
+      <a href="/" class="brand-logo">
+        <img src="img/forklogo.png" alt="fork">
+      </a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down teal lighten-2">
+        
+        <!-- Wrap this in handlbars if unless hbs -->
+        <li>
+          <a href="/signup">New Account</a>
+        </li>
+        <li>
+          <a href="/signin">Log In</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  {{{body}}}
+
+  <footer class="page-footer teal">
+    <div class="container">
+      <div class="row">
+        <div class="col l9 s12">
+          <h5 class="white-text">Fork In The Road</h5>
+          <p class="grey-text text-lighten-4">We are a team of foodies who want to allow others to save their restaurants and dishes from places they visit!
+            Hit us up if you've got suggestions or concerns.</p>
+
+        </div>
+
+        <div class="col l3 s12">
+          <h5 class="white-text">Navigate</h5>
+          <ul>
+            <li>
+              <a class="white-text" href="/signup">New Account</a>
+            </li>
+            <li>
+              <a class="white-text" href="/signin">Log In</a>
+            </li>
+            <li>
+              <a class="white-text" href="/dashboard">Dashboard</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-copyright">
+      <div class="container">
+        Made by Rachel, Angeline, Zack, Lance
+      </div>
+    </div>
+  </footer>
+
+  <!--  Scripts-->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="js/materialize.js"></script>
+  <script src="js/init.js"></script>
+
+</body>
+
+</html>
