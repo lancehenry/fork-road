@@ -1,5 +1,5 @@
 var express = require("express");
-var path = require('path');
+
 var bodyParser = require("body-parser");
 var passport = require("passport");
 var session = require("express-session");
@@ -12,8 +12,8 @@ var app = express();
 app.use(express.static("public"));
 
 // Sets up the Express app to handle data parsing
-app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
 // For Passport
 app.use(session({ secret: 'go team', resave: true, saveUninitialized: true })); // session secret
@@ -32,14 +32,14 @@ var authRoute = require('./routes/auth.js')(app, passport);
 //load passport strategies
 require('./config/passport/passport.js')(passport, models.user);
 
-app.set('views', 'views')
-app.engine('hbs', exphbs({
-    extname: '.hbs'
-}));
-app.set('view engine', '.hbs');
+// Use a if statement 'ifAuthenticated' passport documentation
 
-//app.engine("handlebars", exphbs({ defaultLayout: "main" }));
-//app.set("view engine", "handlebars");
+//app.set('views', 'views')
+app.engine('hbs', exphbs({
+    extname: '.hbs',
+    defaultLayout: 'main'
+}));
+app.set('view engine', 'hbs');
 
 // Import routes and give the server access to them.
 var routes = require("./controllers/authcontroller.js");
@@ -48,8 +48,13 @@ var routes = require("./controllers/authcontroller.js");
 
 // For testing
 app.get('/', function(req, res) {
-  res.send('Welcome to Passport with Sequelize');
+  res.render('index');
+  // res.send('Welcome to Passport with Sequelize');
 });
+
+// Load api-routes
+require('./routes/restaurant-api-routes.js')(app);
+require('./routes/dish-review-routes.js')(app);
 
 //Sync Database
 models.sequelize.sync().then(function () {
