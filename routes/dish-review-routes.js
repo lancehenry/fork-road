@@ -15,6 +15,7 @@ module.exports = function (app) {
     db.DishReview.create(req.body).then(function (dbDishReview) {
       res.json(dbDishReview);
     });
+    res.redirect('/dashboard');
   });
 
   app.delete("/api/dishreviews/:id", function (req, res) {
@@ -27,7 +28,7 @@ module.exports = function (app) {
     });
   });
 
-  app.put("/api/dishreview", function(req, res) {
+  app.put("/api/dishreviews", function(req, res) {
     db.DishReview.update(
       req.body,
       {

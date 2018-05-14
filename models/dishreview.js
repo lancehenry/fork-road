@@ -4,7 +4,7 @@ module.exports = function (sequelize, DataTypes) {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
-        len: [1, 30]
+        len: [1, 200]
       }
     },
     dishName: {
@@ -32,9 +32,7 @@ module.exports = function (sequelize, DataTypes) {
     // We're saying that a Dish Review should belong to a User
     // A Dish Review can't be created without a User due to the foreign key constraint
     DishReview.belongsTo(models.user, {
-      foreignKey: {
-        allowNull: false
-      }
+      onDelete: 'CASCADE'
     });
   };
 
