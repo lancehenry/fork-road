@@ -81,7 +81,7 @@
             showPass = 0;
         }
         
-    });s
+    });
 
 
 })(jQuery);

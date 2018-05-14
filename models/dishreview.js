@@ -32,7 +32,7 @@ module.exports = function (sequelize, DataTypes) {
   DishReview.associate = function (models) {
     // We're saying that a Dish should belong to a Restaurant
     // A Dish can't be created without a Restaurant due to the foreign key constraint
-    DishReview.belongsTo(models.User, {
+    DishReview.belongsTo(models.user, {
       foreignKey: {
         allowNull: false
       }
