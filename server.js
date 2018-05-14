@@ -42,7 +42,7 @@ var routes = require("./controllers/authcontroller.js");
 
 // For testing
 app.get('/', function(req, res) {
-  res.render('dashboard');
+  res.render('index');
   // res.send('Welcome to Passport with Sequelize');
 });
 

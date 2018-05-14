@@ -2,6 +2,11 @@
 
   <nav>
     <div class="nav-wrapper teal lighten-2">
+      <a href="/" class="brand-logo">
+        <img src="./assets/img/forklogo.png" alt="fork">
+      </a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down teal lighten-2">
+    <div class="nav-wrapper teal lighten-2">
       <ul id="nav-mobile" class="right hide-on-med-and-down teal lighten-2">
         <li>
           <a href="/logout">Log Out</a>
@@ -38,32 +43,31 @@
       <!-- Add restaurant -->
       <div class="valign-wrapper row login-box">
         <div class="col card s10 pull-s1 m10 pull-m1 l10 pull-l1">
-          <form id="restaurant" name="restaurant" method="post" action="/api/restaurant">
+          <form id="restaurant" name="restaurant" method="post" action="/api/dishreviews">
+            
             <label for="restaurantName">Restaurant</label>
             <input name="restaurantName" id="restaurantName" type="text" />
+
+            <label for="dishName">Dish</label>
+            <input name="dishName" id="dishName" type="text" />
+
+            <label for="dishRating">Rating</label>
+            <input name="dishRating" id="dishRating" type="text" />
+
+            <label for="notes">Notes</label>
+            <input name="notes" id="notes" type="text" />
             <input class="btn" type="submit" value="Submit" />
+
           </form>
         </div>
       </div>
 
+    {{#each DishReviews}}
+      <div class="col card s10 pull-s1 m10 pull-m1 l10 pull-l1"></div>
+        <li>{{this.restaurantName}}</li>
+      </div>
+    {{/each}}
      
-
-
-      <!-- Add dish -->
-      {{!--
-      <div class="valign-wrapper row login-box">
-        <div class="col card s10 pull-s1 m6 pull-m3 l4 pull-l4">
-          <form id="dish" name="dish" method="post" action="/api/dish">
-            <label for="dish">Dish</label>
-            <input name="dish" type="text" />
-            <label for="notes">Notes</label>
-            <input name="notes" type="text" />
-            <label for="rating">Rating</label>
-            <input name="rating" type="text" />
-            <input class="btn" type="submit" value="Submit" />
-          </form>
-        </div>
-      </div> --}}
     </div>
   </div>
 
