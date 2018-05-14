@@ -1,11 +1,10 @@
 module.exports = function (sequelize, DataTypes) {
   var DishReview = sequelize.define("DishReview", {
-    // Giving the Author model a name of type STRING
     restaurantName: {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
-        len: [1]
+        len: [1, 30]
       }
     },
     dishName: {
@@ -30,8 +29,8 @@ module.exports = function (sequelize, DataTypes) {
   });
 
   DishReview.associate = function (models) {
-    // We're saying that a Dish should belong to a Restaurant
-    // A Dish can't be created without a Restaurant due to the foreign key constraint
+    // We're saying that a Dish Review should belong to a User
+    // A Dish Review can't be created without a User due to the foreign key constraint
     DishReview.belongsTo(models.user, {
       foreignKey: {
         allowNull: false
