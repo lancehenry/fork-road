@@ -1,10 +1,10 @@
 var express = require("express");
-var models = require("./models");
 var path = require("path");
 var bodyParser = require("body-parser");
 var passport = require("passport");
 var session = require("express-session");
 var env = require("dotenv").load();
+var models = require("./models");
 
 var app = express();
 var PORT = process.env.PORT || 8080;
@@ -49,6 +49,9 @@ require('./routes/dish-review-routes.js')(app);
 //Sync Database
 models.sequelize.sync().then(function() {
   app.listen(PORT, function() {
-  console.log("App listening");  
+    app.get('/', function(req, res) {
+      res.render('index');
+      console.log("App listening on PORT: " + PORT);
+    });  
   });
 });
