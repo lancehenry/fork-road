@@ -50,15 +50,8 @@ app.get('/', function(req, res) {
 require('./routes/dish-review-routes.js')(app);
 
 //Sync Database
-models.sequelize.sync().then(function () {
-  console.log('Nice! Database looks fine')
-
-}).catch(function (err) {
-  console.log(err, "Something went wrong with the Database Update!")
-});
-
-app.listen(8080, function (err) {
-  if (!err)
-    console.log("Site is live"); else console.log(err)
-
+models.sequelize.sync().then(function() {
+  app.listen(PORT, function() {
+  console.log("App listening");  
+  };
 });
