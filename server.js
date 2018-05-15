@@ -38,10 +38,10 @@ var routes = require("./controllers/authcontroller.js");
 // app.use(routes);
 
 // For testing
-app.get('/', function(req, res) {
-  res.render('index');
-  res.send('Welcome to Passport with Sequelize');
-});
+//app.get('/', function(req, res) {
+  //res.render('index');
+  //res.send('Welcome to Passport with Sequelize');
+//});
 
 // Load api-routes
 require('./routes/dish-review-routes.js')(app);
