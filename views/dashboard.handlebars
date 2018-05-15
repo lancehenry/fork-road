@@ -101,18 +101,14 @@
   <!-- Google API -->
   <script>
 
-    var input = document.getElementById('restaurantName');
+    
+
+    function initAutocomplete() {
+      var input = document.getElementById('restaurantName');
       var autocomplete = new google.maps.places.Autocomplete(
         input,
         { type: ['(restaurant)'] }
       );
-
-    function initAutocomplete() {
-      //var input = document.getElementById('restaurantName');
-      //var autocomplete = new google.maps.places.Autocomplete(
-        //input,
-        //{ type: ['(restaurant)'] }
-      //);
 
       autocomplete.addListener('place_changed', function() {
         var selectedPlace = autocomplete.getPlace();
