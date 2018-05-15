@@ -101,8 +101,6 @@
   <!-- Google API -->
   <script>
 
-    
-
     function initAutocomplete() {
       var input = document.getElementById('restaurantName');
       var autocomplete = new google.maps.places.Autocomplete(
@@ -110,18 +108,17 @@
         { type: ['(restaurant)'] }
       );
 
-      autocomplete.addListener('place_changed', function() {
+      autocomplete.addListener('place_changed', () => {
         var selectedPlace = autocomplete.getPlace();
-        //console.log(selectedPlace);
+        // console.log(selectedPlace);
         document.getElementById('restaurantName').value = selectedPlace.name;
       });
-      initAutocomplete();
     }
 
-    //const script = document.createElement('script');
-    //script.src = 'https://maps.googleapis.com/maps/api/js?libraries=places&callback=initAutocomplete';
+    const script = document.createElement('script');
+    script.src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyDwoRxb1xgPoBDukbHs_w92rJYtdDdIW0c&libraries=places&language=en";
 
-    //document.body.appendChild(script);
+    document.body.appendChild(script);
 
   </script>
 
