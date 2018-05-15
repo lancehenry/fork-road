@@ -1,19 +1,19 @@
 var express = require("express");
-
+var models = require("./models");
+var path = require("path");
 var bodyParser = require("body-parser");
 var passport = require("passport");
 var session = require("express-session");
 var env = require("dotenv").load();
 
-var PORT = process.env.PORT || 8080;
-
 var app = express();
-
-app.use(express.static("public"));
+var PORT = process.env.PORT || 8080;
 
 // Sets up the Express app to handle data parsing
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+
+app.use(express.static("public"));
 
 // For Passport
 app.use(session({ secret: 'go team', resave: true, saveUninitialized: true })); // session secret
@@ -22,9 +22,6 @@ app.use(passport.session()); // persistent login sessions
 
 // Set Handlebars.
 var exphbs = require("express-handlebars");
-
-// Models
-var models = require("./models");
 
 // Authorization Route
 var authRoute = require('./routes/auth.js')(app, passport);
@@ -41,10 +38,10 @@ var routes = require("./controllers/authcontroller.js");
 // app.use(routes);
 
 // For testing
-app.get('/', function(req, res) {
-  res.render('index');
+//app.get('/', function(req, res) {
+  //res.render('index');
   // res.send('Welcome to Passport with Sequelize');
-});
+//});
 
 // Load api-routes
 require('./routes/dish-review-routes.js')(app);
