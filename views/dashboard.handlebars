@@ -101,24 +101,30 @@
   <!-- Google API -->
   <script>
 
-    function initAutocomplete() {
-      var input = document.getElementById('restaurantName');
+    var input = document.getElementById('restaurantName');
       var autocomplete = new google.maps.places.Autocomplete(
         input,
         { type: ['(restaurant)'] }
       );
 
-      autocomplete.addListener('place_changed', () => {
-        var selectedPlace = autocomplete.getPlace();
+    //function initAutocomplete() {
+      //var input = document.getElementById('restaurantName');
+      //var autocomplete = new google.maps.places.Autocomplete(
+        //input,
+        //{ type: ['(restaurant)'] }
+      //);
+
+      //autocomplete.addListener('place_changed', () => {
+        //var selectedPlace = autocomplete.getPlace();
         // console.log(selectedPlace);
-        document.getElementById('restaurantName').value = selectedPlace.name;
-      });
-    }
+        //document.getElementById('restaurantName').value = selectedPlace.name;
+      //});
+    //}
 
-    const script = document.createElement('script');
-    script.src = 'https://maps.googleapis.com/maps/api/js?libraries=places&callback=initAutocomplete';
+    //const script = document.createElement('script');
+    //script.src = 'https://maps.googleapis.com/maps/api/js?libraries=places&callback=initAutocomplete';
 
-    document.body.appendChild(script);
+    //document.body.appendChild(script);
 
   </script>
 
