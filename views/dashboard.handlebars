@@ -103,11 +103,10 @@
 
     function initAutocomplete() {
       var input = document.getElementById('restaurantName');
-      var autocomplete = 'https://maps.googleapis.com/maps/api/place/autocomplete/json?key=AIzaSyDwoRxb1xgPoBDukbHs_w92rJYtdDdIW0c';
-      //(
-        //input,
-        //{ type: ['(restaurant)'] }
-      //);
+      var autocomplete = new google.maps.places.Autocomplete(
+        input,
+        { type: ['(restaurant)'] }
+      );
 
       autocomplete.addListener('place_changed', () => {
         var selectedPlace = autocomplete.getPlace();
@@ -115,8 +114,6 @@
         document.getElementById('restaurantName').value = selectedPlace.name;
       });
     }
-    
-    initAutocomplete();
 
     //const script = document.createElement('script');
     //script.src = 'https://maps.googleapis.com/maps/api/place/autocomplete/json?key=AIzaSyDwoRxb1xgPoBDukbHs_w92rJYtdDdIW0c';
