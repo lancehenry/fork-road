@@ -114,12 +114,12 @@
         //{ type: ['(restaurant)'] }
       //);
 
-      //autocomplete.addListener('place_changed', () => {
-        //var selectedPlace = autocomplete.getPlace();
-        // console.log(selectedPlace);
-        //document.getElementById('restaurantName').value = selectedPlace.name;
-      //});
-    //}
+      autocomplete.addListener('place_changed', function() {
+        var selectedPlace = autocomplete.getPlace();
+        //console.log(selectedPlace);
+        document.getElementById('restaurantName').value = selectedPlace.name;
+      });
+    }
 
     //const script = document.createElement('script');
     //script.src = 'https://maps.googleapis.com/maps/api/js?libraries=places&callback=initAutocomplete';
