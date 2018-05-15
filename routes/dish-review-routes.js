@@ -12,7 +12,14 @@ module.exports = function (app) {
   });
 
   app.post("/api/dishreviews", function (req, res) {
-    db.DishReview.create(req.body).then(function (dbDishReview) {
+    const newReview = {
+      restaurantName: req.body.restaurantName,
+      dishName: req.body.dishName,
+      dishRating: req.body.dishRating,
+      notes: req.body.notes,
+      userId: req.user.id
+    }
+    db.DishReview.create(newReview).then(function (dbDishReview) {
       res.json(dbDishReview);
     });
     res.redirect('/dashboard');
@@ -24,18 +31,6 @@ module.exports = function (app) {
         id: req.params.id
       }
     }).then(function (dbDishReview) {
-      res.json(dbDishReview);
-    });
-  });
-
-  app.put("/api/dishreviews", function(req, res) {
-    db.DishReview.update(
-      req.body,
-      {
-        where: {
-          id: req.body.id
-        }
-      }).then(function(dbDishReview) {
       res.json(dbDishReview);
     });
   });

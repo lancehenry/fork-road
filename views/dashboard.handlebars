@@ -6,13 +6,13 @@
         <img src="./assets/img/forklogo.png" alt="fork">
       </a>
       <ul id="nav-mobile" class="right hide-on-med-and-down teal lighten-2">
-    <div class="nav-wrapper teal lighten-2">
-      <ul id="nav-mobile" class="right hide-on-med-and-down teal lighten-2">
-        <li>
-          <a href="/logout">Log Out</a>
-        </li>
-      </ul>
-    </div>
+        <div class="nav-wrapper teal lighten-2">
+          <ul id="nav-mobile" class="right hide-on-med-and-down teal lighten-2">
+            <li>
+              <a href="/logout">Log Out</a>
+            </li>
+          </ul>
+        </div>
   </nav>
 
   <div id="index-banner" class="parallax-container">
@@ -44,9 +44,13 @@
       <div class="valign-wrapper row login-box">
         <div class="col card s10 pull-s1 m10 pull-m1 l10 pull-l1">
           <form id="restaurant" name="restaurant" method="post" action="/api/dishreviews">
-            
+
+
             <label for="restaurantName">Restaurant</label>
-            <input name="restaurantName" id="restaurantName" type="text" />
+            <input name="restaurantName" id="restaurantName" type="text" class="form-control" data-type="google-autocomplete" placeholder="Enter Restaurant Name">
+
+            <!-- <label for="restaurantName">Restaurant</label>
+            <input name="restaurantName" id="restaurantName" type="text" /> -->
 
             <label for="dishName">Dish</label>
             <input name="dishName" id="dishName" type="text" />
@@ -62,13 +66,13 @@
         </div>
       </div>
 
-    {{#each DishReviews}}
+      {{#each DishReviews}}
       <div class="col card s10 pull-s1 m10 pull-m1 l10 pull-l1"></div>
-        <li>{{this.restaurantName}}</li>
-      </div>
-    {{/each}}
-     
+      <li>{{this.restaurantName}}</li>
     </div>
+    {{/each}}
+
+  </div>
   </div>
 
   <div class="container">
@@ -91,11 +95,37 @@
 
   <!-- Google API -->
   <script>
+
+    function initAutocomplete() {
+      var input = document.getElementById('restaurantName');
+      var autocomplete = new google.maps.places.Autocomplete(
+        input,
+        { type: ['(restaurant)'] }
+      );
+
+      autocomplete.addListener('place_changed', () => {
+        var selectedPlace = autocomplete.getPlace();
+        // console.log(selectedPlace);
+        document.getElementById('restaurantName').value = selectedPlace.name;
+      });
+    }
+
+    const script = document.createElement('script');
+    script.src = 'https://maps.googleapis.com/maps/api/js?libraries=places&callback=initAutocomplete';
+
+    document.body.appendChild(script);
+
+  </script>
+
+
+  <!--
+  <script>
     var input = document.getElementById('restaurantName');
     var autocomplete = new google.maps.places.Autocomplete(input, { types: ['establishment'] });
   </script>
+  -->
 
   <!-- Custom Script -->
-	<!-- <script src="../public/js/user.js" type="text/javascript"></script> -->
+  <!-- <script src="../public/js/user.js" type="text/javascript"></script> -->
 
 </body>
