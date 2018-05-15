@@ -64,15 +64,20 @@
 
       {{#each DishReview}}
       <div class="valign-wrapper row">
-      <div class="col card s10 pull-s1 m10 pull-m1 l10 pull-l1">
-        <ul class='dish-card'>
-          <li class='rest-name'><strong>{{this.dataValues.restaurantName}}</strong></li>
-          <hr>
-          <li><strong>Dish:</strong> {{this.dataValues.dishName}}</li>
-          <li><strong>Rating:</strong> {{this.dataValues.dishRating}}</li>
-          <li><strong>Notes:</strong> {{this.dataValues.notes}}</li>
-        </ul>
-      </div>
+        <div class="col card s10 pull-s1 m10 pull-m1 l10 pull-l1">
+          <ul class='dish-card'>
+            <li class='rest-name'>
+              <strong>{{this.dataValues.restaurantName}}</strong>
+            </li>
+            <hr>
+            <li>
+              <strong>Dish:</strong> {{this.dataValues.dishName}}</li>
+            <li>
+              <strong>Rating:</strong> {{this.dataValues.dishRating}}</li>
+            <li>
+              <strong>Notes:</strong> {{this.dataValues.notes}}</li>
+          </ul>
+        </div>
       </div>
       {{/each}}
 
@@ -114,12 +119,7 @@
         document.getElementById('restaurantName').value = selectedPlace.name;
       });
     }
-
-initAutocomplete();
-    //const script = document.createElement('script');
-    //script.src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyDwoRxb1xgPoBDukbHs_w92rJYtdDdIW0c&libraries=places&language=en";
-
-    //document.body.appendChild(script);
+    initAutocomplete();
 
   </script>
 
