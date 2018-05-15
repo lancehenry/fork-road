@@ -1,5 +1,6 @@
 "use strict";
 
+var connection = require("../config/connection.js");
 var fs = require("fs");
 var path = require("path");
 var Sequelize = require("sequelize");
