@@ -11,7 +11,7 @@ module.exports = function (app) {
       }
     }).then(function (dbDishReview) {
       res.json(dbDishReview);
-      console.log(dbDishReview);
+      //console.log(dbDishReview);
     });
   });
 

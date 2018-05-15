@@ -55,4 +55,18 @@
  footer.page-footer {
    margin: 0;
  }
- 
+
+ /* Temporary form & list-item styling in Dashboard
+ ----------------------------------------------------------- */
+#restaurant {
+  padding: 20px 10px;
+}
+
+.rest-name {
+  font-size: 20px;
+}
+
+ul.dish-card {
+  padding-left: 10px;
+  padding-right: 10px;
+}
