@@ -38,17 +38,5 @@ module.exports = function (app) {
       res.json(dbDishReview);
     });
   });
-
-  app.put("/api/dishreviews", function(req, res) {
-    db.DishReview.update(
-      req.body,
-      {
-        where: {
-          id: req.body.id
-        }
-      }).then(function(dbDishReview) {
-      res.json(dbDishReview);
-    });
-  });
 };
 
