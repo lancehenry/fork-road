@@ -44,10 +44,11 @@ Table of Contents
 
   Collaborators
   =============
-  [Angeline Slayton][2]
-  [Rachel Punches][3]
-  [Zack Muenz][4]
-  [Lance Schmittling][5]
+  The brave people that undertook this project:
+  * [Angeline Slayton][2]
+  * [Rachel Punches][3]
+  * [Zack Muenz][4]
+  * [Lance Schmittling][5]
 
   [2]: https://github.com/VintageVoodoo13
   [3]: https://github.com/rpunches
