@@ -1,50 +1,42 @@
-// Install in dev environment:
-// $ npm install --save-dev mocha chai supertest superagent
+// `npm install --save-dev nightmare` or `npm i -D nightmare`.
 
-// Include in json package:
-// "test": "node_modules/mocha/bin/mocha ./tests"
+var Nightmare = require("nightmare");
 
-var expect = require("chai").expect;
-var app = require('../server.js');
-var request = require('supertest');
 
-//set up data needed to pass to login method
-const userCredentials = {
-    userName: "spongebob",
-    password: "garyTheSnail"
-}
-
-//login user before running any tests
-var authenticatedUser = request.agent(app);
-
-before(function (done) {
-    authenticatedUser
-        .post('/login')
-        .send(userCredentials)
-        .end(function (err, response) {
-            expect(response.statusCode).to.equal(200);
-            expect('Location', '/home');
-            done();
-        });
-});
-//this test says: make a POST to the /login route with the userName/pw
-//after the POST has completed, make sure the status code is 200 
-//also make sure that the user has been directed to the /home page
-
-describe('GET /profile', function (done) {
-
-    //if user is logged in, receive 200 status code
-    it('should return a 200 response if the user is logged in',
-        function (done) {
-            authenticatedUser.get('/profile')
-                .expect(200, done);
-        });
-    //if user is not logged in, receive a 302 response and redirect to the login page
-    it('should return a 302 response and redirect to /login',
-        function (done) {
-            request(app).get('/profile')
-                .expect('Location', '/login')
-                .expect(302, done);
-        });
-});
-
+new Nightmare({ show: true })
+    // Visit login page
+    .goto("https://afternoon-brushlands-74181.herokuapp.com/")
+    //click Get started Button to login
+    .click("a[href='/dashboard']")
+    // Enter username.
+    .type('input[name="username"]', "Test")
+    // Enter password.
+    .type('input[name="password"]', "asdfll")
+    // Take a screenshot of the login form.
+    .screenshot("login.png")
+    // Click the sign up button. 
+    .click('button[type="submit"]')
+    .wait(5000)
+    // Enter Restaurant
+    .type('input[name="restaurantName"]', "Burger King")
+    // Enter Dish
+    .type('input[name="dishName"]', "Whopper")
+    // Enter Rating
+    .type('input[name="dishRating"]', "5")
+    // Enter any notes
+    .type('input[name="notes"]', "My favorite dish")
+    // Click submit button
+    .click(".btn")
+    .wait(5000)
+    // Take a screenshot and save it to the current directory.
+    .screenshot("restaurant.png")
+    // End test
+    .end()
+    // Execute commands
+    .then(function () {
+        console.log("Done!");
+    })
+    // Catch errors
+    .catch(function (err) {
+        console.log(err);
+    });
